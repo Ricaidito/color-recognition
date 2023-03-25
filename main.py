@@ -56,7 +56,7 @@ def get_rgb_from_csv(colors_list, csv_file_path):
 
 
 def print_results(color_pixels, color_codes):
-    print(f"\n{len(color_pixels)} RESULTS:\n")
+    print(f"\n{len(color_pixels)} COLOR RESULTS:\n")
     for (color_name, rgb_val), (_, pixels) in zip(color_codes, color_pixels):
         print(f"{color_name}, {rgb_val}, {pixels} pixels")
 
