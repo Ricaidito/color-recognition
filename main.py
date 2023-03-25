@@ -5,6 +5,7 @@ from collections import defaultdict
 import pickle
 import torch
 import torch.nn as nn
+import matplotlib.pyplot as plt
 
 
 class ColorClassifier(nn.Module):
@@ -55,10 +56,32 @@ def get_rgb_from_csv(colors_list, csv_file_path):
     return result
 
 
+def rgb_to_hex(rgb):
+    r, g, b = rgb
+    return f"#{r:02x}{g:02x}{b:02x}"
+
+
 def print_results(color_pixels, color_codes):
     print(f"\n{len(color_pixels)} COLOR RESULTS:\n")
     for (color_name, rgb_val), (_, pixels) in zip(color_codes, color_pixels):
         print(f"{color_name}, {rgb_val}, {pixels} pixels")
+
+
+def show_graph(color_pixels, color_codes):
+    color_graph_data = []
+    for (color_name, rgb_val), (_, pixels) in zip(color_codes, color_pixels):
+        color_graph_data.append((color_name, rgb_to_hex(rgb_val), pixels))
+
+    pie_labels = [f"{d[0]}, {d[1]}" for d in color_codes]
+    colors = [d[1] for d in color_graph_data]
+    pixels = [d[2] for d in color_graph_data]
+
+    plt.rcParams['figure.figsize'] = [12.8, 7.2]
+    plt.pie(pixels, labels=pie_labels, colors=colors)
+    plt.title("Color distribution", fontdict={
+              "fontsize": 14, "fontweight": "bold"})
+    plt.get_current_fig_manager().set_window_title("Color distribution")
+    plt.show()
 
 
 def main():
@@ -84,6 +107,7 @@ def main():
                                     for color in color_pixels], csv_file)
 
     print_results(color_pixels, color_codes)
+    show_graph(color_pixels, color_codes)
 
 
 if __name__ == '__main__':
