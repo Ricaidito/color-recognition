@@ -72,9 +72,9 @@ def show_graph(color_pixels, color_codes):
     for (color_name, rgb_val), (_, pixels) in zip(color_codes, color_pixels):
         color_graph_data.append((color_name, rgb_to_hex(rgb_val), pixels))
 
-    pie_labels = [f"{d[0]}, {d[1]}" for d in color_codes]
-    colors = [d[1] for d in color_graph_data]
-    pixels = [d[2] for d in color_graph_data]
+    pie_labels = [f"{i[0]}, {i[1]}" for i in color_codes]
+    colors = [i[1] for i in color_graph_data]
+    pixels = [i[2] for i in color_graph_data]
 
     plt.rcParams['figure.figsize'] = [12.8, 7.2]
     plt.pie(pixels, labels=pie_labels, colors=colors)
