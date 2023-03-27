@@ -1,6 +1,6 @@
 # Color recognition
 
-Machine learning model (Neural Network) capable of classifying the colors in any supplied image. Powered by a dataset (`colors.csv`) with information about colors.
+Machine Learning model (Neural Network) capable of classifying the colors in any supplied image. Powered by a dataset (`colors.csv`) with information about colors.
 
 ## How to run it
 
