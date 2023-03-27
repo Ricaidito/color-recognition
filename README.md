@@ -1,6 +1,6 @@
 # Color recognition
 
-Machine Learning model written in Python using PyTorch and scikit-learn capable of classifying the colors in any supplied image. Powered by a dataset (`colors.csv`) with color information
+Machine learning model (Neural Network) capable of classifying the colors in any supplied image. Powered by a dataset (`colors.csv`) with information about colors.
 
 ## How to run it
 
